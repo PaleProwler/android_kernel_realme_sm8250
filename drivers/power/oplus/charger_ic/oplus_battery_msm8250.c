@@ -13449,9 +13449,14 @@ void oplus_set_otg_switch_status(bool value)
 		}
 	}
 
-	oplus_ccdetect_enable();
+	chip->otg_switch = !!value;
+	if (value) {
+		oplus_ccdetect_enable();
+	} else {
+		oplus_ccdetect_disable();
+	}
 	pr_debug(KERN_ERR "[OPLUS_CHG][%s]: otg_switch=%d, otg_online=%d\n",
-			__func__, chip->otg_switch, chip->otg_online);
+		__func__, chip->otg_switch, chip->otg_online);
 }
 #endif /* OPLUS_FEATURE_CHG_BASIC */
 
