@@ -134,8 +134,8 @@
 #define CFG_TWT_CONGESTION_TIMEOUT CFG_INI_UINT( \
 		"twt_congestion_timeout", \
 		0, \
-		10000, \
-		100, \
+		0, \
+		0, \
 		CFG_VALUE_OR_DEFAULT, \
 		"twt congestion timeout")
 
