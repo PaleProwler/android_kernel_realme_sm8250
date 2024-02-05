@@ -495,9 +495,7 @@ static void mtp_complete_out(struct usb_ep *ep, struct usb_request *req)
 	if (req->status != 0 && dev->state != STATE_OFFLINE)
 		dev->state = STATE_ERROR;
 
-#ifndef OPLUS_FEATURE_CHG_BASIC
 	wake_up(&dev->read_wq);
-#endif
 }
 
 static void mtp_complete_intr(struct usb_ep *ep, struct usb_request *req)
